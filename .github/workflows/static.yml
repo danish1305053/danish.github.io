@@ -18,7 +18,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: "https://danish1305053.github.io/"
+      url: "https://danish.github.io/"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
