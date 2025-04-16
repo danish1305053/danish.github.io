@@ -15,14 +15,22 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: "https://github.com/danish1305053/danish.github.io"
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # or your preferred version
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Project
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -30,7 +38,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # Deploys everything in the repository root
+          path: './danish.github.io' # make sure this matches your actual output folder
 
       - name: Deploy to GitHub Pages
         id: deployment
