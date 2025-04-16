@@ -1,4 +1,4 @@
-name: Deploy static content to Pages
+name: Deploy static site to GitHub Pages
 
 on:
   push:
@@ -16,22 +16,18 @@ concurrency:
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: "/danish.github.io"
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload Artifact
+      - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # Deploys everything in the repository root
+          path: '.'  # Deploy the root folder
 
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
