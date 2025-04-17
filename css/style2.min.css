@@ -521,7 +521,7 @@ html, body {
 #boutontr.active,
 #boutontrac.active {
   top: 40%;
-  right: 10%;
+  right: 4%;
   scale: 1.3;
   transition: 200ms ease-in-out;
   bottom: inherit;
@@ -2369,12 +2369,7 @@ section {
     display: none;
   }
 
-  .contact .num {
-
-    padding: 2vh 10vw;
-    border-bottom: 1px solid gray;
-    margin-bottom: 1vh;
-  }
+  .contact .num {padding: 2vh 0vw;border-bottom: 1px solid gray;margin-bottom: 1vh;margin: 5vh 2vh;}
 
 
   .contact .num a h3 {
